@@ -1,5 +1,5 @@
 const express = require('express');
-const { db } = require('./utils/db');
+const { clientsDb:db } = require('../utils/db');
 
 const clientRouter = express.Router();
 

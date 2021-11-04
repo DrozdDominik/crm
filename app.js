@@ -14,7 +14,6 @@ app.use(express.json());
 app.use(methodOverride('_method'));
 app.engine('.hbs', hbs({
     extname: '.hbs',
-    // helpers: handlebarsHelpers,
 }));
 app.set('view engine', '.hbs');
 
