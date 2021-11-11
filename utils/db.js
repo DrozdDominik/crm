@@ -20,10 +20,10 @@ class Db {
     create(obj) {
         const id = uuid();
 
-        this._data.push(new ClientRecord(
+        this._data.push(new ClientRecord({
             id,
             ...obj,
-        ));
+        }));
         this._save();
 
         return id;
@@ -39,17 +39,17 @@ class Db {
 
     update(id, newObj) {
         this._data = this._data.map(oneObj => (
-            oneObj.id === id ? {
+            oneObj.id === id ? new ClientRecord({
                 ...oneObj,
                 ...newObj,
-            } : oneObj
+            }) : oneObj
         )
-    );
+    );    
         this._save();
     }
 
-    delete(id) {
-        this._data = this._data.filter(oneObj => oneObj.id !== id);
+    delete(id) {        
+        this._data = this._data.filter(oneObj => oneObj.id !== id);        
         this._save();
     }
 }    

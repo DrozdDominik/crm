@@ -39,7 +39,7 @@ clientRouter
                 id: req.params.id,
             })
         })
-        .delete('/:id', (req, res) => {
+        .delete('/:id', (req, res) => {            
             db.delete(req.params.id);
             res.render('client/deleted')
         })
